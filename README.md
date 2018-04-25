@@ -13,7 +13,7 @@ This little python-script can offer some help.
 As written above this script is intended to be used under Linux with the program 'whois' installed and usable. You must have a document containing the frequency and the corresponding ip-address (one per line). This is how the output looks like when you perform the steps noted above (egrep, sort, uniq -c).
 
 Now you can use the script via:<br>
-python3 whois-helper.py addresses.txt
+`python3 whois-helper.py addresses.txt`
 
 In this example the file 'addresses.txt' contains the ip-addresses. If you forget to specify an input-file the script tells you about that and terminates.
 
