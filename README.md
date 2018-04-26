@@ -3,9 +3,9 @@ Python-script for making whois-queries of ip-addresses stored in a textfile. Pro
 Needs the program 'whois' to be installed on Linux!
 
 # Introduction
-Let's assume you have a look in your website's logfiles and you are interested in which ip-addresses can be found there, how often they occur and of course where they come from.
+Let's assume you have a look into your website's logfiles and you are interested in which ip-addresses can be found there, how often they occur and of course where they come from.
 
-This is a task that can be completely done using the linux-bash. At first you have to extract the ip-addresses using 'egrep' followed by 'sort' and 'uniq' respectively 'uniq -c'. Then you have to use 'awk' (at least this is how I would do that) to perform a whois-query for every ip-address found. And in the end, you need a way to look through your results.
+This is a task that can be completely done using the linux-bash. At first you have to extract the ip-addresses using `egrep` followed by `sort` and `uniq` respectively `uniq -c`. Then you have to use `awk` (at least this is how I would do that) to perform a whois-query for every ip-address found. And in the end, you need a way to look through your results.
 
 This little python-script can offer some help.
 
@@ -23,3 +23,8 @@ The result of the script will be a csv-file called 'results.csv'. I contains the
 I have tested the script with different ip-addresses from RIPE, ARIN, LACNIC, APNIC an AFRINIC, as the results of the whois-queries are slightly different. But the script should match in every case. At least it did during my tests.
 
 If an ip-address is checked which is not valid, you will see 'None' as entry for the country-code and description of the owner of the ip-address.
+
+# Limitations
+Today I stumbled upon the fact, that under certain circumstances the results are more or less incorrect. In case you make a whois-request for an ip-address belonging to an ip-range, that has been transferred from one registrar to another, the result in the csv-file will be the "new" registrar.
+
+I'm going to have a look at how to solve this problem, in order to fix this in a future release.
